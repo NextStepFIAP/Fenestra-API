@@ -1,6 +1,7 @@
 package br.com.nextstep.Fenestra.model;
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +25,7 @@ public class Log {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DT_REGISTRO", nullable = false)	
-	private LocalDate dateRegistro;
+	private Date dateRegistro;
 	
 	@Column(name = "DS_REGISTRO", nullable = false, length = 64)
 	private String description;
