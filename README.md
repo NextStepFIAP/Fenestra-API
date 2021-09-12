@@ -23,6 +23,7 @@ Método: GET
 
 Na verificação de logs, o usuário poderá verificar todos os relatos que o sistema irá registrar de todos os comandos efetuados naquele determinado período de pesquisa determinado no aplicativo. Os Logs conterão informações como data e hora do evento, motivo e o componente específico que realizou aquela ação. Por exemplo, se o comando fechar ou abrir a janela ocorrer por uma ação do usuário, ficará registrado aquela ação no sistema.  O mesmo acontecerá caso algum acionamento seja feito por detecção de umidade, por estar programado no aplicativo pelo usuário ou até mesmo caso ocorra do sistema ser desligado caso ocorra alguma falha ou corte de energia no local. Esses Logs ficarão gravados e disponibilizados no aplicativo para consulta de histórico por parte do usuário.
 
+1.2 - Imagem da arquiteruta :https://github.com/NextStepFIAP/Fenestra-API/blob/d3013efc7be08534b223aaf26543da4a680dc3dd/Fenestra/Arquitetura.png
 
 
 2 - IMPLEMENTAÇÃO DO BACK-END
