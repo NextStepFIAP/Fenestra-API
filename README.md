@@ -30,5 +30,11 @@ Na verificação de logs, o usuário poderá verificar todos os relatos que o si
 Para o Back-End da nossa solução, iremos utilizar como linguagem de desenvolvimento o React-Native pois além de ter uma fácil comunicação com o Front-End de sistemas mobile podemos, por meio dele, disponibilizar nossa aplicação para diversas plataformas. No que diz respeito ao Banco de Dados, será utilizado o MySQL por ser uma opção gratuita e oferecer um excelente serviço na persistência de dados. Por fim, para integrar e permitir a comunicação entre todos os nossos sistemas e componentes (Arduino, Aplicativo e Banco de Dados) iremos utilizar o Node-Red como nosso servidor intermediário.
 
 
+4 - Tabela de Endpoints
+[/user] - Endpoint de transações relacionadas ao usuário ()
+[/componente] - Endpoint de transações relacionadas ao componente ()
+[/log] - Endpoint de transações relacionadas ao log ()
+
+
 3 - PRINCIPAIS FUNCIONALIDADES DO BACK-END
 Dentre as principais funções que o back-end será responsável, podemos citar as que são acionadas pela aplicação Mobile, estas que abordam, efetivamente, as ações que o sistema executará no componente mecânico do Arduino, como por exemplo: Definir um horário para fechamento da(s) janela(s), fechar a(s) janela(s) automaticamente ao iniciar uma chuva e/ou por meio deste horário, exibir e gerar logs das ações do Arduino para o usuário (Ex: A janela foi fechada automaticamente às 02:41 no dia 30/05/2021), atuar no sincronismo entre o Componente e o aplicativo e, por fim, funções mais abrangentes e genéricas, como cadastro, autenticação, persistência de dados e controle da sessão do usuário.
