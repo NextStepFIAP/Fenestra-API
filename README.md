@@ -31,9 +31,9 @@ Para o Back-End da nossa solução, iremos utilizar como linguagem de desenvolvi
 
 
 4 - Tabela de Endpoints
-[/user] - Endpoint de transações relacionadas ao usuário ()
-[/componente] - Endpoint de transações relacionadas ao componente ()
-[/log] - Endpoint de transações relacionadas ao log ()
+[/user] - Endpoint de transações relacionadas ao usuário ()<br>
+[/componente] - Endpoint de transações relacionadas ao componente ()<br>
+[/log] - Endpoint de transações relacionadas ao log ()<br>
 
 
 3 - PRINCIPAIS FUNCIONALIDADES DO BACK-END
