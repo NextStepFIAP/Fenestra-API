@@ -43,7 +43,7 @@ public class ApiComponenteController {
 		
 		repository.save(componente);
 		
-		URI uri = uriBuilder.path("/api/user/1").buildAndExpand(componente.getId()).toUri();
+		URI uri = uriBuilder.path("/api/componente/{id}").buildAndExpand(componente.getId()).toUri();
 		
 		return ResponseEntity.created(uri).body(componente);
 	}

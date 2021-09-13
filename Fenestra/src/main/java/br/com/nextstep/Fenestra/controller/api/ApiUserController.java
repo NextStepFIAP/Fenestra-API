@@ -43,7 +43,7 @@ public class ApiUserController {
 		
 		repository.save(user);
 		
-		URI uri = uriBuilder.path("/api/user/1").buildAndExpand(user.getId()).toUri();
+		URI uri = uriBuilder.path("/api/user/{id}").buildAndExpand(user.getId()).toUri();
 		
 		return ResponseEntity.created(uri).body(user);
 	}

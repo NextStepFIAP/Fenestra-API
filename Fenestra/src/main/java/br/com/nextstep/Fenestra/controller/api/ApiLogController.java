@@ -44,7 +44,7 @@ public class ApiLogController {
 		
 		repository.save(log);
 		
-		URI uri = uriBuilder.path("/api/user/1").buildAndExpand(log.getId()).toUri();
+		URI uri = uriBuilder.path("/api/log/{id}").buildAndExpand(log.getId()).toUri();
 		
 		return ResponseEntity.created(uri).body(log);
 	}
