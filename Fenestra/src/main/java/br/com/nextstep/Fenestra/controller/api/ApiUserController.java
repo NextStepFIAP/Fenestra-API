@@ -26,7 +26,7 @@ import br.com.nextstep.Fenestra.repositories.UserRepository;
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin
-public class ApiUserController {
+public class ApiUserController { //Api user
 
 	@Autowired
 	private UserRepository repository;
