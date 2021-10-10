@@ -32,7 +32,7 @@ public class ApiUserController { //Api user
 	private UserRepository repository;
 	
 	@GetMapping
-	public Page<User> index(@RequestParam(required = false) String name, @PageableDefault(size = 5) Pageable pageable) {
+	public Page<User> index(@RequestParam(required = false) String name, @PageableDefault(size = 60) Pageable pageable) {
 		if(name == null){
 			return repository.findAll(pageable);
 				

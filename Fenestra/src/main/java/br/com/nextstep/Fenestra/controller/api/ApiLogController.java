@@ -33,7 +33,7 @@ public class ApiLogController {
 	
 	
 	@GetMapping
-	public Page<Log> index(@RequestParam(required = false) Date date, @PageableDefault(size = 5) Pageable pageable) {
+	public Page<Log> index(@RequestParam(required = false) Date date, @PageableDefault(size = 60) Pageable pageable) {
 		if(date == null){
 			return repository.findAll(pageable);
 				

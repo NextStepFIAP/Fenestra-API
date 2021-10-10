@@ -32,7 +32,7 @@ public class ApiComponenteController {
 	private ComponenteRepository repository;
 	
 	@GetMapping
-	public Page<Componente> index(@RequestParam(required = false) String name, @PageableDefault(size = 5) Pageable pageable) {
+	public Page<Componente> index(@RequestParam(required = false) String name, @PageableDefault(size = 60) Pageable pageable) {
 		if(name == null){
 			return repository.findAll(pageable);
 				
