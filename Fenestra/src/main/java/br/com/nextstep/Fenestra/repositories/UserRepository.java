@@ -9,5 +9,7 @@ import br.com.nextstep.Fenestra.model.User;
 public interface UserRepository extends JpaRepository<User, Long>{
 
 	Page<User> findByNameLike(String name, Pageable pageable);
+	
+	User findByEmailAndPassword(String email, String password);
 
 }
