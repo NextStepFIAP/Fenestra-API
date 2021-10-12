@@ -40,6 +40,11 @@ public class ApiUserController { //Api user
 		return repository.findByNameLike("%" + name + "%", pageable);
 	}
 	
+	@GetMapping("/email/{email}")
+	public User getByEmail(@RequestParam String email){
+		return repository.findByEmail(email);		
+	}
+	
 	@PostMapping
 	public ResponseEntity<User> create(@RequestBody User user, UriComponentsBuilder uriBuilder) {
 		
