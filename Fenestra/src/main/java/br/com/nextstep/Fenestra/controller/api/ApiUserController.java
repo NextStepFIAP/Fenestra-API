@@ -40,8 +40,8 @@ public class ApiUserController { //Api user
 		return repository.findByNameLike("%" + name + "%", pageable);
 	}
 	
-	@GetMapping("/email/{email}")
-	public User getByEmail(@RequestParam String email){
+	@GetMapping("{email}")
+	public User getByEmail(@PathVariable String email){
 		return repository.findByEmail(email);		
 	}
 	
