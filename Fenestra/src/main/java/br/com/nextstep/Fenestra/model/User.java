@@ -8,9 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "TB_USUARIO")
 @Table(name = "TB_USUARIO")
 @SequenceGenerator(name="user", sequenceName = "SQ_TB_USUARIO", allocationSize = 1)
@@ -29,4 +33,9 @@ public class User {
 	@Column(name = "NM_SENHA", nullable = false, length = 20)
 	private String password;
 
+	public User(String name, String email, String password) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
 }
