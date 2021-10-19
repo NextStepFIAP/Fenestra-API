@@ -10,8 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -27,9 +26,15 @@ class FenestraApplicationTests {
 	@Autowired
 	private ApiUserController controller;
 
+
+	/*
+	*
+	* TESTES DA CLASSE USER
+	* ENDPOINT (/api/user)
+	* */
 	@Test
 	void createUser() throws Exception{
-		//Sempre mudar o email a cada teste
+		//Sempre mudar o email a cada teste (Pois ele é Unique Key)
 		//Criar usuário
 		User user = new User("nome", "email3@hotmail.com", "Senha123");
 
@@ -65,18 +70,40 @@ class FenestraApplicationTests {
 		//Comparar resultados
 		Assertions.assertEquals(user.getId(), 2L);
 		Assertions.assertEquals(user.getName(), "Eduardo Vinícius");
-		//Sempre mudar o email a cada teste
 		Assertions.assertEquals(user.getEmail(), "eduardo@gmail.com");
 		Assertions.assertEquals(user.getPassword(), "Fiap@123");
 	}
 
 	@Test
 	void updateUser() throws Exception{
+		//Mudando final da senha de 123 para 321
+		User user = new User(42L, "nome", "email3@hotmail.com", "Senha321");
+
+		//PUT
+		mockMvc.perform(put("/api/user/42")
+						.contentType("application/json")
+						.content(objectMapper.writeValueAsString(user)))
+				.andExpect(status().isOk());
+
+		//Comparar Resultados
+		Assertions.assertEquals(user.getId(), 42L);
+		Assertions.assertEquals(user.getName(), "nome");
+		Assertions.assertEquals(user.getEmail(), "email3@hotmail.com");
+		Assertions.assertEquals(user.getPassword(), "Senha321");
 
 	}
 
 	@Test
 	void deleteUser() throws Exception{
+
+		//Este Objeto deve estar criado no BD
+		User user = new User(42L);
+
+		//DELETE
+		mockMvc.perform(delete("/api/user/42")
+						.contentType("application/json")
+						.content(objectMapper.writeValueAsString(user)))
+				.andExpect(status().isOk());
 
 	}
 }
