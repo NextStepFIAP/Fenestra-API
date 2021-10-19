@@ -12,9 +12,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "TB_LOG")
 @SequenceGenerator(name="log", sequenceName = "SQ_TB_LOG", allocationSize = 1)
 public class Log {
@@ -29,4 +33,9 @@ public class Log {
 	
 	@Column(name = "DS_REGISTRO", nullable = false, length = 64)
 	private String description;
+
+	public Log(Date dateRegistro, String description) {
+		this.dateRegistro = dateRegistro;
+		this.description = description;
+	}
 }
