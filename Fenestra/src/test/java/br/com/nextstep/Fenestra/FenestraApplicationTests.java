@@ -221,4 +221,88 @@ class FenestraApplicationTests {
 	 * ENDPOINT (/api/log)
 	 * */
 
+	/*
+@Test
+void createLog() throws Exception{
+    //Criar log
+    Log log = new Log(); //Falta colocar o ID do Usuário que tem esse componente
+
+    //POST
+    MvcResult result = mockMvc.perform(post("/api/log")
+                    .contentType("application/json")
+                    .content(objectMapper.writeValueAsString(log)))
+            .andExpect(status().isCreated()).andReturn();
+
+    //Comparar resultados
+    Assertions.assertEquals(log.getDescription(), "Fechamento Programado");
+
+    System.out.println("\n\n Resultado da requisição: " + result.getResponse().getContentAsString() + "\n\n");
+
+}
+*/
+	@Test
+	void getAllLogs() throws Exception{
+		//GET All
+		MvcResult result = mockMvc.perform(get("/api/log")
+						.contentType("application/json"))
+				.andExpect(status().isOk()).andReturn();
+		System.out.println("\n\n Resultado da requisição: " + result.getResponse().getContentAsString() + "\n\n");
+
+	}
+/*
+	@Test
+	void getLog() throws Exception{
+		Log log = new Log(); //Falta colocar o ID do Componente que tem esse log (Log -> ManyToOne -> Componente)
+
+		//GET
+		MvcResult result = mockMvc.perform(get("/api/log/1")
+						.contentType("application/json")
+						.content(objectMapper.writeValueAsString(log)))
+				.andExpect(status().isOk()).andReturn();
+
+		//Comparar resultados
+		Assertions.assertEquals(log.getId(), 1L);
+		Assertions.assertEquals(log.getDateRegistro(), dd/MM/yyyy);
+		Assertions.assertEquals(log.getDescription(), "Fechamento Programado");
+		//Assertions.assertEquals(log.getComponente(), );
+
+		//Print do body do request
+		System.out.println("\n\n Resultado da requisição: " + result.getResponse().getContentAsString() + "\n\n");
+	}
+
+	@Test
+	void updateLog() throws Exception{
+		//Mudando o nome do componente
+		Log log = new Log(); //Falta colocar o ID do Componente que tem esse log (Log -> ManyToOne -> Componente)
+
+		//PUT
+		MvcResult result = mockMvc.perform(put("/api/log/999999")
+						.contentType("application/json")
+						.content(objectMapper.writeValueAsString(log)))
+				.andExpect(status().isOk()).andReturn();
+
+		//Comparar Resultados
+		Assertions.assertEquals(log.getId(), 1L);
+		Assertions.assertEquals(log.getDateRegistro(), dd/MM/yyyy);
+		Assertions.assertEquals(log.getDescription(), "Fechamento Programado");
+		//Assertions.assertEquals(log.getComponente(), );
+
+		System.out.println("\n\n Resultado da requisição: " + result.getResponse().getContentAsString() + "\n\n");
+
+	}
+*/
+
+	@Test
+	void deleteLog() throws Exception{
+		//Este Objeto deve estar criado no BD
+		Log log = new Log(999999L);
+
+		//DELETE
+		MvcResult result = mockMvc.perform(delete("/api/log/999999")
+						.contentType("application/json")
+						.content(objectMapper.writeValueAsString(log)))
+				.andExpect(status().isOk()).andReturn();
+
+		System.out.println("\n\nLog deletado");
+	}
 }

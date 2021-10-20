@@ -38,4 +38,9 @@ public class Log {
 		this.dateRegistro = dateRegistro;
 		this.description = description;
 	}
+
+	public Log(Long id) {
+		this.id = id;
+	}
+
 }

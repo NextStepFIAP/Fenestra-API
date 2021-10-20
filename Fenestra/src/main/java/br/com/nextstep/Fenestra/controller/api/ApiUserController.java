@@ -90,7 +90,7 @@ public class ApiUserController { //Api user
 	}
 
 	@PutMapping("/email/{email}")
-	public ResponseEntity<User> updateByEmail(@PathVariable Long id, @RequestBody User newUser){
+	public ResponseEntity<User> updateByEmail(@PathVariable String email, @RequestBody User newUser){
 		Optional<User> optional = repository.findById(id);
 
 		if(optional.isEmpty()) {
