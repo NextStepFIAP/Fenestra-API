@@ -91,13 +91,8 @@ public class ApiUserController { //Api user
 
 	@PutMapping("/email/{email}")
 	public ResponseEntity<User> updateByEmail(@PathVariable String email, @RequestBody User newUser){
-		Optional<User> optional = repository.findById(id);
+		User user = repository.findByEmail(email);
 
-		if(optional.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-
-		User user = optional.get();
 		user.setName(newUser.getName());
 		user.setPassword(newUser.getPassword());
 
