@@ -39,12 +39,7 @@ public class ApiUserController { //Api user
 		}
 		return repository.findByNameLike("%" + name + "%", pageable);
 	}
-	
-	@GetMapping("/email/{email}")
-	public User getByEmail(@PathVariable String email){
-		return repository.findByEmail(email);		
-	}
-	
+
 	@PostMapping
 	public ResponseEntity<User> create(@RequestBody User user, UriComponentsBuilder uriBuilder) {
 		
@@ -87,6 +82,28 @@ public class ApiUserController { //Api user
 		
 		return ResponseEntity.ok(user);
 		
+	}
+
+	@GetMapping("/email/{email}")
+	public User getByEmail(@PathVariable String email){
+		return repository.findByEmail(email);
+	}
+
+	@PutMapping("/email/{email}")
+	public ResponseEntity<User> updateByEmail(@PathVariable Long id, @RequestBody User newUser){
+		Optional<User> optional = repository.findById(id);
+
+		if(optional.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+
+		User user = optional.get();
+		user.setName(newUser.getName());
+		user.setPassword(newUser.getPassword());
+
+		repository.save(user);
+
+		return ResponseEntity.ok(user);
 	}
 
 }
