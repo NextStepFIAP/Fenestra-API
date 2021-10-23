@@ -15,10 +15,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "TB_COMPONENTE")
-@SequenceGenerator(name="componente", sequenceName = "SQ_TB_COMPONENTE", allocationSize = 1)
+@SequenceGenerator(name="componente_sq", sequenceName = "SQ_TB_COMPONENTE", allocationSize = 1)
 public class Componente {
 	
-	@Id @GeneratedValue(generator = "log", strategy = GenerationType.SEQUENCE)
+	@Id @GeneratedValue(generator = "componente_sq", strategy = GenerationType.SEQUENCE)
 	@Column(name = "CD_COMPONENTE", nullable = false)
 	private Long id;
 	

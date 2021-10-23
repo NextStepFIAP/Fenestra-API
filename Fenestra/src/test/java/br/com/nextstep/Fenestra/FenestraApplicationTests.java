@@ -113,10 +113,10 @@ class FenestraApplicationTests {
 	void deleteUser() throws Exception{
 
 		//Este Objeto deve estar criado no BD
-		User user = new User(41L);
+		User user = new User(44L);
 
 		//DELETE
-		MvcResult result = mockMvc.perform(delete("/api/user/41")
+		MvcResult result = mockMvc.perform(delete("/api/user/44")
 						.contentType("application/json")
 						.content(objectMapper.writeValueAsString(user)))
 				.andExpect(status().isOk()).andReturn();
@@ -203,10 +203,10 @@ class FenestraApplicationTests {
 	@Test
 	void deleteComponente() throws Exception{
 		//Este Objeto deve estar criado no BD
-		User user = new User(999999L);
+		User user = new User(18L);
 
 		//DELETE
-		MvcResult result = mockMvc.perform(delete("/api/user/999999")
+		MvcResult result = mockMvc.perform(delete("/api/componente/18")
 						.contentType("application/json")
 						.content(objectMapper.writeValueAsString(user)))
 				.andExpect(status().isOk()).andReturn();
@@ -295,10 +295,10 @@ void createLog() throws Exception{
 	@Test
 	void deleteLog() throws Exception{
 		//Este Objeto deve estar criado no BD
-		Log log = new Log(999999L);
+		Log log = new Log(8L);
 
 		//DELETE
-		MvcResult result = mockMvc.perform(delete("/api/log/999999")
+		MvcResult result = mockMvc.perform(delete("/api/log/8")
 						.contentType("application/json")
 						.content(objectMapper.writeValueAsString(log)))
 				.andExpect(status().isOk()).andReturn();
