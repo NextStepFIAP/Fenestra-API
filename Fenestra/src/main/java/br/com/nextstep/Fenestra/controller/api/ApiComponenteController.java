@@ -3,6 +3,8 @@ package br.com.nextstep.Fenestra.controller.api;
 import java.net.URI;
 import java.util.Optional;
 
+import br.com.nextstep.Fenestra.model.User;
+import br.com.nextstep.Fenestra.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,7 +32,10 @@ public class ApiComponenteController {
 
 	@Autowired
 	private ComponenteRepository repository;
-	
+
+	@Autowired
+	private UserRepository userRepository;
+
 	@GetMapping
 	public Page<Componente> index(@RequestParam(required = false) String name, @PageableDefault(size = 60) Pageable pageable) {
 		if(name == null){
@@ -42,7 +47,10 @@ public class ApiComponenteController {
 
 	@PostMapping
 	public ResponseEntity<Componente> create(@RequestBody Componente componente, UriComponentsBuilder uriBuilder) {
-		
+
+		/*Optional<User> user = userRepository.findById(componente.getUser().getId());
+		componente.setUser(user.get());*/
+
 		repository.save(componente);
 		
 		URI uri = uriBuilder.path("/api/componente/{id}").buildAndExpand(componente.getId()).toUri();

@@ -1,15 +1,14 @@
 package br.com.nextstep.Fenestra.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,7 +24,12 @@ public class Componente {
 	@Column(name = "NM_COMPONENTE", nullable = false, length = 32)
 	private String name;
 
-	public Componente(String name) {
-		this.name = name;
-	}
+	@ManyToOne
+	@JoinColumn(name = "CD_USUARIO", nullable = false)
+	@JsonBackReference
+	private User user;
+
+	@OneToMany(mappedBy = "componente", cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private List<Log> logs;
 }
