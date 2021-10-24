@@ -28,11 +28,6 @@ public class Log {
 	@Column(name = "DS_REGISTRO", nullable = false, length = 64)
 	private String description;
 
-	public Log(Date dateRegistro, String description) {
-		this.dateRegistro = dateRegistro;
-		this.description = description;
-	}
-
 	@ManyToOne
 	@JoinColumn(name = "CD_COMPONENTE", nullable = false)
 	@JsonBackReference
